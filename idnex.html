@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проект "Цифровой Наставник" - Описание</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Общие стили и импорт шрифта Lexend */
+        body {
+            font-family: 'Lexend', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 500;
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.6em;
+        }
+
+        h4 {
+            font-size: 1.3em;
+            color: #34495e;
+        }
+
+        p, li, dd {
+            font-size: 1rem;
+            text-align: justify; /* Для лучшей читаемости */
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 1em;
+        }
+
+        li {
+            margin-bottom: 0.7em;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #16a085; /* Акцентный цвет */
+        }
+
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            background-color: #eef1f3;
+            padding: 0.2em 0.5em;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #c0392b;
+        }
+
+        pre {
+            background-color: #2d3436; /* Темный фон для блоков кода */
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Горизонтальная прокрутка для длинных строк */
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .sql-explanation, .php-explanation, .db-explanation {
+            background-color: #fdfdfd;
+            border-left: 5px solid #1abc9c; /* Левая граница для выделения */
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .db-table {
+            margin-bottom: 2em;
+            padding-bottom: 1em;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .db-table h4 {
+            margin-bottom: 0.5em;
+        }
+
+        dt {
+            font-weight: 500;
+            color: #2980b9;
+            margin-top: 0.5em;
+        }
+
+        dd {
+            margin-left: 20px;
+            margin-bottom: 0.5em;
+        }
+
+        /* --- Стилизация для Бионического чтения --- */
+        /* Класс для элементов, к которым будет применен эффект */
+        .bionic-reading-text p,
+        .bionic-reading-text li {
+            /* Стиль для параграфов и элементов списка внутри блока */
+        }
+
+        /* Стиль для жирной части слова */
+        .bionic-part {
+            font-weight: 700; /* Жирное начертание */
+        }
+        /* ----------------------------------------- */
+
+        /* Дополнительные стили для ясности */
+        .tech-list li {
+            background-color: #ecf0f1;
+            padding: 5px 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            display: inline-block; /* Чтобы элементы были рядом */
+            margin-right: 8px;
+        }
+
+        .tech-list li strong {
+            color: #2c3e50;
+        }
+
+        .note {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 5px;
+            display: block; /* Для переноса строки */
+        }
+
+        .security-measure {
+            margin-left: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #f39c12;
+            margin-bottom: 10px;
+        }
+
+        .improvement-item {
+             margin-left: 20px;
+             padding-left: 15px;
+             border-left: 3px solid #3498db;
+             margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Проект "Цифровой Наставник"</h1>
+
+    <section id="introduction">
+        <h2>1. Введение</h2>
+        <p><strong>Название проекта:</strong> "Цифровой Наставник" - Портал для онлайн-обучения.</p>
+        <p><strong>Цель проекта:</strong> Создание веб-платформы, позволяющей пользователям (ученикам) проходить обучающие курсы, состоящие из уроков и тестов, отслеживать свой прогресс и получать сертификаты. Платформа также предоставляет администраторам инструменты для управления контентом (курсами, уроками, материалами) и пользователями.</p>
+        <p><strong>Актуальность:</strong> Онлайн-образование является востребованным направлением. Данная платформа предоставляет базовый, но расширяемый функционал для организации дистанционного обучения.</p>
+        <p><strong>Основные технологии:</strong></p>
+        <ul class="tech-list">
+            <li><strong>Бэкенд:</strong> PHP</li>
+            <li><strong>База данных:</strong> MySQL</li>
+            <li><strong>Фронтенд:</strong> HTML, CSS (Bootstrap 5), JavaScript (jQuery)</li>
+            <li><strong>Генерация PDF:</strong> FPDF</li>
+        </ul>
+    </section>
+
+    <section id="functionality">
+        <h2>2. Описание Функционала</h2>
+
+        <h3>Для Пользователя </h3>
+        <ul>
+            <li><strong>Регистрация и Авторизация:</strong> Пользователь может создать аккаунт и войти в систему. Используется безопасное хранение паролей (хэширование).</li>
+            <li><strong>Просмотр Курсов:</strong> Отображается список доступных курсов с названиями и описаниями.</li>
+            <li><strong>Прохождение Курса:</strong> Пользователь может открыть курс и увидеть список его уроков.</li>
+            <li><strong>Просмотр Урока:</strong> Доступно содержание урока (текст/HTML).</li>
+            <li><strong>Прохождение Теста:</strong> Если к уроку прикреплен тест (в формате JSON), пользователь может ответить на вопросы. Результат (процент правильных ответов) сохраняется.</li>
+            <li><strong>Личный Кабинет:</strong>
+                <ul>
+                    <li><strong>Прогресс:</strong> Отображается прогресс прохождения курсов (в процентах, рассчитывается как отношение пройденных уроков к общему числу уроков в курсе). Показываются только курсы, по которым есть прогресс.</li>
+                    <li><strong>Сертификаты:</strong> Если пользователь успешно прошел все уроки курса и его средний балл по тестам не ниже установленного порога (<code>CERTIFICATE_THRESHOLD = 80%</code>), он может скачать PDF-сертификат.</li>
+                </ul>
+            </li>
+            <li><strong>Выход из системы.</strong></li>
+        </ul>
+
+        <h3>Для Администратора</h3>
+        <ul>
+            <li><strong>Вход:</strong> Администратор входит под своей учетной записью (поле <code>is_admin</code> в БД = 1).</li>
+            <li><strong>Панель Администратора:</strong> Отдельный раздел с доступом к управленческим функциям.</li>
+            <li><strong>Управление Курсами:</strong>
+                <ul>
+                    <li>Просмотр списка курсов.</li>
+                    <li>Добавление новых курсов (название, описание).</li>
+                    <li>Удаление курсов (вместе со всеми уроками, тестами и прогрессом пользователей по ним – используется транзакция и/или каскадное удаление).</li>
+                    <li>Переход к управлению уроками конкретного курса.</li>
+                </ul>
+            </li>
+            <li><strong>Управление Уроками (в контексте курса):</strong>
+                <ul>
+                    <li>Просмотр списка уроков курса.</li>
+                    <li>Добавление новых уроков (название, содержание в HTML, опциональный тест в формате JSON). Предусмотрена клиентская валидация JSON.</li>
+                    <li>Удаление уроков (вместе с прогрессом пользователей по ним).</li>
+                </ul>
+            </li>
+            <li><strong>Управление Пользователями:</strong>
+                <ul>
+                    <li>Просмотр списка всех пользователей (кроме паролей).</li>
+                    <li>Удаление пользователей (кроме основного администратора <code>ID=1</code> и самого себя). При удалении пользователя также удаляется его прогресс.</li>
+                </ul>
+            </li>
+            <li><strong>Статистика:</strong> Просмотр базовой статистики: общее количество пользователей, курсов, записей о пройденных уроках (прогресс), а также детальная таблица прогресса всех пользователей по всем урокам.</li>
+            <li><strong>Загрузка Материалов:</strong>
+                <ul>
+                    <li>Возможность загружать файлы (PDF, MP4, JPG, PNG, DOCX), привязывая их к определенному курсу для организации.</li>
+                    <li>Реализованы проверки безопасности: ограничение размера файла (<code>MAX_FILE_SIZE</code>), проверка расширения (<code>ALLOWED_EXTENSIONS</code>) и реального MIME-типа файла (<code>finfo</code>).</li>
+                    <li>Файлы сохраняются на сервере в папку <code>uploads/materials/</code> с уникальным именем, информация записывается в БД (<code>materials</code>).</li>
+                    <li>Путь к загруженному файлу отображается, чтобы администратор мог вставить его в HTML-содержание урока (например, <code>&lt;a href="uploads/materials/..."&gt;Скачать PDF&lt;/a&gt;</code> или <code>&lt;video src="uploads/materials/..."&gt;&lt;/video&gt;</code>).</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="technical-implementation">
+        <h2>3. Техническая Реализация</h2>
+
+        <h3>Архитектура</h3>
+        <p>Клиент-серверная архитектура. Фронтенд (HTML/JS/CSS) взаимодействует с бэкендом (PHP) через AJAX-запросы, получая и отправляя данные в формате JSON.</p>
+
+        <h3>База Данных (MySQL)</h3>
+        <div class="db-explanation">
+            <ul>
+                <li>Используется 6 таблиц: <code>users</code>, <code>courses</code>, <code>lessons</code>, <code>user_progress</code>, <code>materials</code>, <code>certificates</code>.</li>
+                <li>Хорошо продуманы связи между таблицами с использованием внешних ключей (<code>FOREIGN KEY</code>).</li>
+                <li>Применение <code>ON DELETE CASCADE</code> для автоматического удаления связанных данных (например, уроков при удалении курса) упрощает поддержку целостности данных.</li>
+                <li>Таблица <code>user_progress</code> имеет уникальный индекс (<code>user_id</code>, <code>lesson_id</code>), чтобы избежать дублирования записей о прохождении одного урока одним пользователем.</li>
+                <li>Кодировка <code>utf8mb4</code> обеспечивает поддержку широкого спектра символов, включая эмодзи.</li>
+            </ul>
+        </div>
+
+        <h3>Бэкенд (PHP)</h3>
+        <ul>
+            <li><strong>Структура:</strong> Код разбит на логические файлы (<code>auth.php</code>, <code>courses.php</code>, <code>lessons.php</code>, <code>user.php</code>, <code>upload.php</code>, <code>certificate.php</code>, <code>stats.php</code> (не предоставлен, но подразумевается), <code>config.php</code>).</li>
+            <li><strong>Взаимодействие с БД:</strong> Используется <strong>PDO</strong> (PHP Data Objects) для работы с базой данных. Это обеспечивает уровень абстракции и помогает предотвращать SQL-инъекции при использовании подготовленных выражений (<code>prepared statements</code>), что и сделано в коде (<code>prepare</code>, <code>execute</code> с передачей параметров).</li>
+            <li><strong>API:</strong> Каждый PHP-файл (кроме <code>config.php</code>) фактически представляет собой небольшой API-эндпоинт, обрабатывающий разные <code>action</code> (действия), передаваемые через GET или POST.</li>
+            <li><strong>Сессии:</strong> Используются PHP-сессии для управления состоянием пользователя (авторизован/не авторизован, ID пользователя, статус администратора). <code>session_regenerate_id(true)</code> при логине повышает безопасность.</li>
+            <li><strong>Безопасность:</strong>
+                <ul>
+                    <li>Хэширование паролей (<code>password_hash</code>, <code>password_verify</code>).</li>
+                    <li>Проверка прав доступа (<code>isAdmin</code>) перед выполнением административных действий.</li>
+                    <li>Валидация входных данных (например, <code>filter_input</code>, <code>trim</code>, проверка на пустоту).</li>
+                    <li>Защита от удаления "важных" пользователей (ID=1, себя).</li>
+                    <li>Безопасная загрузка файлов (проверка размера, расширения, MIME-типа через <code>finfo</code>, генерация уникального имени).</li>
+                    <li>Использование подготовленных выражений PDO для защиты от SQL-инъекций.</li>
+                </ul>
+            </li>
+            <li><strong>Обработка ошибок:</strong> Используются <code>try-catch</code> блоки для перехвата исключений PDO и других ошибок. <code>error_log</code> используется для записи ошибок на сервере. Возвращаются JSON-ответы с полем <code>success</code> и <code>message</code>. Устанавливаются соответствующие HTTP-статус коды ошибок (400, 401, 403, 404, 500).</li>
+            <li><strong>Генерация PDF:</strong> Библиотека <strong>FPDF</strong> используется для создания сертификатов "на лету". Подключены шрифты DejaVu для поддержки кириллицы.</li>
+            <li><strong>Транзакции:</strong> При удалении курса используется транзакция БД (<code>beginTransaction</code>, <code>commit</code>, <code>rollBack</code>) для обеспечения атомарности операции (либо удаляется все связанное, либо ничего).</li>
+        </ul>
+
+        <h3>Фронтенд (HTML/JS/CSS)</h3>
+        <ul>
+            <li><strong>Интерфейс:</strong> Используется фреймворк <strong>Bootstrap 5</strong> для адаптивного дизайна и стандартных компонентов (кнопки, модальные окна, карточки, таблицы, прогресс-бары).</li>
+            <li><strong>Интерактивность:</strong> <strong>jQuery</strong> используется для:
+                <ul>
+                    <li>Отправки AJAX-запросов на бэкенд без перезагрузки страницы.</li>
+                    <li>Обработки ответов от сервера (в формате JSON).</li>
+                    <li>Динамического обновления DOM (отображения курсов, уроков, прогресса, сообщений об ошибках/успехе).</li>
+                    <li>Управления видимостью различных разделов интерфейса (курсы, урок, личный кабинет, админ-панель), создавая эффект одностраничного приложения (SPA).</li>
+                    <li>Обработки событий (клики кнопок, отправка форм).</li>
+                </ul>
+            </li>
+            <li><strong>Валидация:</strong> Присутствует базовая клиентская валидация (например, проверка заполненности полей <code>required</code>, проверка JSON теста).</li>
+        </ul>
+    </section>
+
+    <section id="faq" class="bionic-reading-text"> <h2>4. Возможные вопросы и ответы</h2>
+
+        <div class="faq-item">
+            <p><strong>В:</strong> Какие меры безопасности были приняты в проекте?</p>
+            <p><strong>О:</strong></p>
+            <ol>
+                <li class="security-measure"><strong>Хэширование паролей</strong> с использованием <code>password_hash</code> и <code>password_verify</code>.</li>
+                <li class="security-measure"><strong>Использование подготовленных выражений PDO</strong> для защиты от SQL-инъекций.</li>
+                <li class="security-measure"><strong>Проверка прав администратора</strong> (<code>$_SESSION['isAdmin']</code>) перед выполнением критических операций.</li>
+                <li class="security-measure"><strong>Безопасная обработка загружаемых файлов:</strong> проверка размера, допустимых расширений и, что важно, проверка реального MIME-типа файла с помощью <code>finfo</code> для предотвращения загрузки вредоносных файлов под видом разрешенных.</li>
+                <li class="security-measure"><strong>Использование <code>session_regenerate_id(true)</code></strong> при входе для защиты от фиксации сессии.</li>
+                <li class="security-measure"><strong>Валидация входных данных</strong> на бэкенде.</li>
+                <li class="security-measure"><strong>Защита от удаления</strong> ключевых учетных записей администратора.</li>
+            </ol>
+        </div>
+
+        <div class="faq-item">
+            <p><strong>В:</strong> Как реализована система тестов?</p>
+            <p><strong>О:</strong> <strong>Тесты</strong> хранятся в таблице <code>lessons</code> в поле <code>test</code> типа <code>JSON</code>. <strong>Структура</strong> <code>JSON</code> включает массив <code>questions</code>, где каждый элемент – это объект с текстом вопроса (<code>question</code>), массивом вариантов ответа (<code>options</code>) и индексом правильного ответа (<code>answer</code>). На фронтенде этот <code>JSON</code> парсится и отображается в виде формы с радио-кнопками. При отправке ответы пользователя (выбранные индексы) отправляются на бэкенд (<code>lessons.php?action=submitTest</code>), где сравниваются с правильными ответами из БД. Рассчитывается процент правильных ответов, который сохраняется в таблицу <code>user_progress</code>. Используется <code>ON DUPLICATE KEY UPDATE</code> для обновления результата, если пользователь пересдает тест.</p>
+        </div>
+
+        <div class="faq-item">
+            <p><strong>В:</strong> Как генерируются сертификаты?</p>
+            <p><strong>О:</strong> <strong>Сертификаты</strong> генерируются динамически в формате <strong>PDF</strong> с помощью PHP-библиотеки <strong>FPDF</strong> (<code>certificate.php</code>). Пользователь может запросить сертификат для курса из личного кабинета. Бэкенд проверяет, выполнены ли условия: пройдены ли все уроки данного курса и является ли средний балл по тестам этого курса не ниже установленного порога (80%). Если условия выполнены, скрипт извлекает имя пользователя (из сессии) и название курса (из БД), формирует PDF-документ с этой информацией, текущей датой и средним баллом, и отдает его браузеру для скачивания или отображения. Используются шрифты <strong>DejaVu</strong> для корректного отображения кириллицы.</p>
+        </div>
+
+        <div class="faq-item">
+            <p><strong>В:</strong> Почему для хранения тестов используется JSON, а не отдельные таблицы?</p>
+            <p><strong>О:</strong> <strong>Использование</strong> <code>JSON</code> в данном случае <strong>упрощает</strong> структуру БД, так как не требует создания дополнительных таблиц для вопросов и вариантов ответов. Это удобно для простого формата тестов "вопрос-варианты-один правильный ответ". Для более сложных тестов (множественный выбор, ввод текста и т.д.) потребовалась бы более сложная структура БД. <code>JSON</code> обеспечивает <strong>гибкость:</strong> можно легко добавить новые поля к вопросам в будущем без изменения схемы БД, но <strong>усложняет</strong> запросы к данным тестов (например, поиск по тексту вопроса).</p>
+        </div>
+
+        <div class="faq-item">
+            <p><strong>В:</strong> Как обеспечивается целостность данных при удалении, например, курса?</p>
+            <p><strong>О:</strong> <strong>Во-первых,</strong> в схеме БД используются внешние ключи с опцией <code>ON DELETE CASCADE</code>. Это означает, что при удалении записи в родительской таблице (например, <code>courses</code>), связанные записи в дочерних таблицах (например, <code>lessons</code>, <code>materials</code>, <code>certificates</code>) удаляются автоматически самой СУБД. <strong>Во-вторых,</strong> в PHP-коде (<code>courses.php?action=delete</code>) дополнительно используется <strong>транзакция</strong> базы данных. Явно удаляются записи из <code>user_progress</code>, связанные с уроками удаляемого курса, затем удаляются сами уроки, и только потом сам курс. Транзакция гарантирует, что либо все эти операции выполнятся успешно, либо, в случае ошибки на любом шаге, все изменения будут отменены (<code>rollBack</code>), сохраняя целостность данных.</p>
+        </div>
+
+        <div class="faq-item">
+            <p><strong>В:</strong> Предусмотрена ли защита от CSRF (Cross-Site Request Forgery)?</p>
+            <p><strong>О:</strong> <strong>В представленном</strong> коде явной защиты от <strong>CSRF</strong> с использованием токенов <strong>не видно</strong>. Это является потенциальной уязвимостью для действий, изменяющих состояние (POST-запросы на удаление, добавление). Для защиты следовало бы генерировать уникальный токен для каждой сессии пользователя, вставлять его в формы на фронтенде и проверять на бэкенде при обработке POST-запросов.</p>
+        </div>
+
+        <div class="faq-item">
+            <p><strong>В:</strong> Как можно улучшить или развить проект?</p>
+            <p><strong>О:</strong></p>
+            <ol>
+                <li class="improvement-item">Добавить <strong>роли</strong> (например, "Учитель", который может создавать курсы, но не управлять пользователями).</li>
+                <li class="improvement-item">Реализовать более <strong>сложные типы тестов</strong>.</li>
+                <li class="improvement-item">Добавить возможность <strong>загрузки видео напрямую</strong> (а не только ссылки на MP4).</li>
+                <li class="improvement-item">Внедрить <strong>систему комментариев</strong> к урокам.</li>
+                <li class="improvement-item">Улучшить <strong>статистику</strong> (графики, отчеты).</li>
+                <li class="improvement-item">Добавить <strong>CSRF-защиту</strong>.</li>
+                <li class="improvement-item">Реализовать <strong>редактирование</strong> курсов и уроков (сейчас есть только добавление/удаление).</li>
+                <li class="improvement-item">Внедрить <strong>систему уведомлений</strong>.</li>
+                <li class="improvement-item">Использовать <strong>JavaScript-фреймворк</strong> (React, Vue, Angular) для более структурированного фронтенда.</li>
+                <li class="improvement-item">Добавить <strong>пагинацию</strong> для списков (курсы, пользователи, статистика), если их станет много.</li>
+                <li class="improvement-item">Использовать таблицу <code>certificates</code> для <strong>хранения информации</strong> о выданных сертификатах, а не только для генерации "на лету".</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="sql-explanation">
+        <h2>Дополнительно: Разбор SQL Запросов (user.php, action=dashboard)</h2>
+
+        <div class="sql-explanation">
+            <h3>Запрос для Прогресса Пользователя (<code>$progressSql</code>)</h3>
+            <p><strong>Цель:</strong> Показать, какой процент уроков пользователь завершил в каждом курсе, который он начал проходить.</p>
+            <p><strong>Как работает:</strong></p>
+            <ol>
+                <li><code>FROM courses c JOIN lessons l ON c.id = l.course_id</code>: Сначала соединяем таблицы <code>courses</code> и <code>lessons</code>. Теперь у нас есть список всех уроков с информацией о том, к какому курсу они принадлежат.</li>
+                <li><code>LEFT JOIN user_progress up ON l.id = up.lesson_id AND up.user_id = :userId</code>: Теперь к этому списку уроков мы слева присоединяем таблицу <code>user_progress</code>. <code>LEFT JOIN</code> важен, потому что он сохраняет все уроки курса, даже если пользователь их еще не прошел (в этом случае поля из <code>user_progress</code> будут <code>NULL</code>). Условие <code>AND up.user_id = :userId</code> внутри <code>JOIN</code> гарантирует, что мы присоединяем прогресс только для текущего пользователя (ID которого передается в <code>:userId</code>).</li>
+                <li><code>GROUP BY c.id, c.title</code>: Группируем все строки по курсам. Это позволяет нам считать статистику (количество уроков, прогресс) для каждого курса отдельно.</li>
+                <li><code>SELECT c.id AS course_id, c.title AS course, ...</code>: Выбираем ID и название курса.</li>
+                <li><code>COUNT(DISTINCT l.id)</code>: Считает общее количество уникальных уроков в каждой группе (в каждом курсе).</li>
+                <li><code>COUNT(DISTINCT up.lesson_id)</code>: Считает количество уникальных уроков, для которых у данного пользователя есть запись в <code>user_progress</code> (т.е. пройденные уроки). <code>COUNT</code> не учитывает <code>NULL</code>, которые появляются для непройденных уроков из-за <code>LEFT JOIN</code>.</li>
+                <li><code>IFNULL(ROUND( (COUNT(DISTINCT up.lesson_id) * 100.0) / COUNT(DISTINCT l.id) ), 0) AS progress</code>: Это вычисление прогресса. (Пройденные уроки * 100) / Всего уроков. <code>ROUND</code> округляет результат, <code>IFNULL(..., 0)</code> ставит 0, если результат <code>NULL</code> (например, если в курсе 0 уроков, чтобы избежать деления на ноль).</li>
+                <li><code>HAVING COUNT(DISTINCT up.lesson_id) > 0</code>: После группировки и подсчетов, этот фильтр оставляет только те курсы, где пользователь прошел хотя бы один урок (т.е. его прогресс больше 0).</li>
+                <li><code>ORDER BY c.title ASC</code>: Сортирует результат по названию курса.</li>
+            </ol>
+            <p><strong>Результат:</strong> Список курсов, которые пользователь начал проходить, с указанием процента завершения для каждого.</p>
+        </div>
+
+        <div class="sql-explanation">
+            <h3>Запрос для Доступных Сертификатов (<code>$certsSql</code>)</h3>
+            <p><strong>Цель:</strong> Определить, по каким курсам пользователь выполнил все условия для получения сертификата.</p>
+            <p><strong>Как работает:</strong></p>
+            <ol>
+                <li>Соединение таблиц (<code>FROM</code>, <code>JOIN</code>, <code>LEFT JOIN</code>) и группировка (<code>GROUP BY</code>) такие же, как в запросе прогресса. Мы снова смотрим на каждый курс отдельно для текущего пользователя.</li>
+                <li><code>HAVING ...</code>: Вся логика проверки условий находится здесь. Курс попадает в результат, только если <strong>оба</strong> условия в <code>HAVING</code> выполняются:
+                    <ul>
+                        <li><code>COUNT(DISTINCT l.id) = COUNT(DISTINCT up.lesson_id)</code>: Общее количество уроков в курсе (<code>COUNT(DISTINCT l.id)</code>) должно быть равно количеству пройденных этим пользователем уроков (<code>COUNT(DISTINCT up.lesson_id)</code>). Это означает, что пользователь завершил <strong>все</strong> уроки курса.</li>
+                        <li><code>AVG(up.score) >= :scoreThreshold</code>: Средний балл (<code>AVG(up.score)</code>) по всем пройденным урокам этого курса должен быть больше или равен пороговому значению (<code>:scoreThreshold</code>, которое установлено в 80).</li>
+                    </ul>
+                </li>
+                <li><code>SELECT DISTINCT c.id AS courseId, c.title AS course</code>: Выбираем ID и название курсов, удовлетворяющих условиям.</li>
+                <li><code>ORDER BY c.title ASC</code>: Сортирует результат по названию курса.</li>
+            </ol>
+            <p><strong>Результат:</strong> Список курсов, по которым пользователь может получить сертификат.</p>
+        </div>
+    </section>
+
+    <section id="database-explanation">
+        <h2>Дополнительно: Объяснение Базы Данных (Таблицы)</h2>
+
+        <div class="db-explanation">
+            <div class="db-table">
+                <h4><code>users</code> (Таблица пользователей)</h4>
+                <dl>
+                    <dt>Назначение:</dt><dd>Хранит информацию об зарегистрированных пользователях.</dd>
+                    <dt>Ключевые поля:</dt>
+                    <dd><code>id</code>: Уникальный идентификатор пользователя (Primary Key, Auto Increment).</dd>
+                    <dd><code>username</code>: Логин пользователя (Уникальный, не пустой).</dd>
+                    <dd><code>password</code>: Хэш пароля пользователя (не пустой). Хранится не сам пароль, а его безопасный хэш.</dd>
+                    <dd><code>is_admin</code>: Флаг, указывающий, является ли пользователь администратором (Boolean, по умолчанию FALSE).</dd>
+                    <dd><code>created_at</code>: Дата и время создания записи (Timestamp, по умолчанию текущее время).</dd>
+                    <dt>Особенности:</dt><dd>Уникальность <code>username</code> предотвращает регистрацию пользователей с одинаковыми логинами.</dd>
+                </dl>
+            </div>
+
+            <div class="db-table">
+                <h4><code>courses</code> (Таблица курсов)</h4>
+                <dl>
+                    <dt>Назначение:</dt><dd>Хранит информацию об учебных курсах.</dd>
+                    <dt>Ключевые поля:</dt>
+                    <dd><code>id</code>: Уникальный идентификатор курса (Primary Key, Auto Increment).</dd>
+                    <dd><code>title</code>: Название курса (не пустое).</dd>
+                    <dd><code>description</code>: Описание курса (может быть пустым).</dd>
+                    <dd><code>created_at</code>: Дата создания.</dd>
+                </dl>
+            </div>
+
+             <div class="db-table">
+                <h4><code>lessons</code> (Таблица уроков)</h4>
+                <dl>
+                    <dt>Назначение:</dt><dd>Хранит информацию об уроках, входящих в курсы.</dd>
+                    <dt>Ключевые поля:</dt>
+                    <dd><code>id</code>: Уникальный идентификатор урока (Primary Key, Auto Increment).</dd>
+                    <dd><code>course_id</code>: Идентификатор курса, к которому относится урок (Foreign Key к <code>courses.id</code>). Не пустой.</dd>
+                    <dd><code>title</code>: Название урока (не пустое).</dd>
+                    <dd><code>content</code>: Содержание урока (HTML/текст, может быть пустым).</dd>
+                    <dd><code>test</code>: Структура теста в формате JSON (может быть пустой).</dd>
+                    <dd><code>created_at</code>: Дата создания.</dd>
+                    <dt>Особенности:</dt><dd>Внешний ключ <code>fk_lesson_course</code> с <code>ON DELETE CASCADE</code> означает, что при удалении курса из таблицы <code>courses</code>, все связанные с ним уроки из таблицы <code>lessons</code> будут удалены автоматически.</dd>
+                </dl>
+            </div>
+
+            <div class="db-table">
+                <h4><code>user_progress</code> (Таблица прогресса пользователей)</h4>
+                <dl>
+                    <dt>Назначение:</dt><dd>Отслеживает, какие уроки прошел пользователь и с каким результатом.</dd>
+                    <dt>Ключевые поля:</dt>
+                    <dd><code>id</code>: Уникальный идентификатор записи прогресса (Primary Key, Auto Increment).</dd>
+                    <dd><code>user_id</code>: Идентификатор пользователя (Foreign Key к <code>users.id</code>).</dd>
+                    <dd><code>lesson_id</code>: Идентификатор урока (Foreign Key к <code>lessons.id</code>).</dd>
+                    <dd><code>score</code>: Результат теста/урока (число, может быть пустым, если тест не пройден или его нет).</dd>
+                    <dd><code>completed_at</code>: Дата и время завершения урока/последней попытки теста.</dd>
+                    <dt>Особенности:</dt><dd>Уникальный индекс <code>idx_user_lesson</code> на поля (<code>user_id</code>, <code>lesson_id</code>) гарантирует, что для одного пользователя и одного урока может быть только одна запись прогресса. Внешние ключи <code>fk_progress_user</code> и <code>fk_progress_lesson</code> с <code>ON DELETE CASCADE</code> удаляют записи прогресса, если удаляется соответствующий пользователь или урок.</dd>
+                </dl>
+            </div>
+
+             <div class="db-table">
+                <h4><code>materials</code> (Таблица материалов)</h4>
+                <dl>
+                    <dt>Назначение:</dt><dd>Хранит информацию о загруженных файлах (доп. материалы к курсам).</dd>
+                    <dt>Ключевые поля:</dt>
+                    <dd><code>id</code>: Уникальный идентификатор материала (Primary Key, Auto Increment).</dd>
+                    <dd><code>course_id</code>: Идентификатор курса, к которому относится материал (Foreign Key к <code>courses.id</code>, для организации).</dd>
+                    <dd><code>file_path</code>: Путь к файлу на сервере (не пустой).</dd>
+                    <dd><code>original_filename</code>: Исходное имя файла при загрузке.</dd>
+                    <dd><code>mime_type</code>: Проверенный MIME-тип файла (например, 'application/pdf', 'video/mp4').</dd>
+                    <dd><code>file_size</code>: Размер файла в байтах.</dd>
+                    <dd><code>uploaded_at</code>: Дата загрузки.</dd>
+                    <dt>Особенности:</dt><dd>Внешний ключ <code>fk_material_course</code> с <code>ON DELETE CASCADE</code> удаляет запись о материале при удалении связанного курса.</dd>
+                </dl>
+            </div>
+
+             <div class="db-table">
+                <h4><code>certificates</code> (Таблица сертификатов)</h4>
+                <dl>
+                    <dt>Назначение:</dt><dd>Предназначена для хранения информации о выданных сертификатах (хотя в текущем коде сертификаты генерируются "на лету" и не сохраняются сюда).</dd>
+                    <dt>Ключевые поля:</dt>
+                    <dd><code>id</code>: Уникальный идентификатор сертификата (Primary Key, Auto Increment).</dd>
+                    <dd><code>user_id</code>: Идентификатор пользователя (Foreign Key к <code>users.id</code>).</dd>
+                    <dd><code>course_id</code>: Идентификатор курса (Foreign Key к <code>courses.id</code>).</dd>
+                    <dd><code>issued_at</code>: Дата выдачи сертификата.</dd>
+                    <dt>Особенности:</dt><dd>Внешние ключи с <code>ON DELETE CASCADE</code> удалят запись о сертификате при удалении пользователя или курса.</dd>
+                </dl>
+            </div>
+
+            <p><strong>Общее по БД:</strong> Использование <code>ENGINE=InnoDB</code> важно, так как он поддерживает внешние ключи и транзакции. Кодировка <code>utf8mb4</code> и сравнение <code>utf8mb4_unicode_ci</code> обеспечивают хорошую поддержку разных языков.</p>
+        </div>
+    </section>
+
+    <section id="fpdf-explanation">
+        <h2>Дополнительно: Что такое FPDF?</h2>
+        <div class="php-explanation">
+            <p><strong>FPDF</strong> - это бесплатная библиотека (класс) для PHP, которая позволяет программистам создавать и изменять PDF-документы прямо из PHP-кода. Вам не нужно иметь какие-либо внешние программы для генерации PDF.</p>
+            <p>В вашем проекте (<code>certificate.php</code>) она используется для:</p>
+            <ul>
+                <li>Создания нового PDF-документа с определенными параметрами (размер A4, альбомная ориентация).</li>
+                <li>Добавления поддержки кириллических шрифтов (DejaVu).</li>
+                <li>Рисования элементов на странице: рамки (<code>Rect</code>), текста (<code>Cell</code>, <code>MultiCell</code>).</li>
+                <li>Установки шрифтов, размеров, выравнивания текста.</li>
+                <li>Вставки динамических данных: имени пользователя, названия курса, среднего балла, даты выдачи.</li>
+                <li>Отправки сгенерированного PDF-файла в браузер пользователя для просмотра или скачивания (<code>Output</code>).</li>
+            </ul>
+            <p><strong>Преимущество:</strong> Позволяет генерировать документы (отчеты, счета, сертификаты) "на лету" на основе данных из вашей системы, без необходимости вручную создавать каждый документ.</p>
+        </div>
+    </section>
+
+    <section id="php-scripts-explanation">
+        <h2>Дополнительно: Объяснение PHP Скриптов (по примеру)</h2>
+
+        <div class="php-explanation">
+            <h4><code>config.php</code></h4>
+            <p><strong>Назначение:</strong> Этот скрипт отвечает за настройку соединения с базой данных и предоставление объекта для работы с ней (<code>$pdo</code>) другим скриптам.</p>
+            <p><strong>Как работает:</strong></p>
+            <ol>
+                <li>Сначала он определяет PHP-константы (вроде <code>DB_HOST</code>, <code>DB_NAME</code> и т.д.), в которых хранятся данные для подключения к MySQL (адрес сервера, имя базы, логин, пароль). Использование констант удобно, так как если данные для подключения изменятся, их нужно будет поправить только в этом одном файле.</li>
+                <li>Затем он пытается создать объект класса PDO (это стандартный способ работы с базами данных в PHP). В конструктор PDO передаются строка подключения (собранная из констант) и учетные данные.</li>
+                <li>Если соединение успешно, он настраивает объект <code>$pdo</code>, чтобы ошибки базы данных вызывали исключения PHP (<code>setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION)</code>). Это упрощает обработку ошибок в других частях кода с помощью <code>try-catch</code>.</li>
+                <li>Если соединение не удалось (например, неправильный пароль или недоступен сервер БД), код внутри <code>catch</code> перехватывает ошибку, записывает ее в лог сервера (<code>error_log</code>) и немедленно прекращает выполнение, отправляя браузеру JSON-ответ с сообщением об ошибке соединения.</li>
+                <li>Строки <code>while (ob_get_level() > 0) { ob_end_clean(); }</code> в начале (и в других файлах) используются для очистки любого буфера вывода, который мог быть создан ранее. Это гарантирует, что перед отправкой <code>header('Content-Type: application/json...')</code> не будет никакого случайного вывода (пробелов, HTML), который мог бы сломать JSON-ответ.</li>
+            </ol>
+            <p><strong>Зачем нужен:</strong> Обеспечивает единую точку настройки и подключения к БД, делает код более организованным и упрощает обработку ошибок подключения. Другие скрипты просто подключают его через <code>require_once 'config.php';</code> и могут использовать готовую переменную <code>$pdo</code>.</p>
+        </div>
+
+        <div class="php-explanation">
+             <h4><code>auth.php</code></h4>
+            <p><strong>Назначение:</strong> Обрабатывает все, что связано с входом, выходом и регистрацией пользователей, а также управляет сессиями.</p>
+            <p><strong>Как работает:</strong></p>
+            <ol>
+                <li>Подключает <code>config.php</code> для работы с БД и запускает сессию (<code>session_start</code>), если она еще не запущена.</li>
+                <li>Определяет, какое действие (<code>action</code>) нужно выполнить, получая его из <code>$_POST</code>.</li>
+                <li>Использует конструкцию <code>switch ($action)</code> для выполнения соответствующего кода:
+                    <ul>
+                        <li><strong><code>case 'login':</code></strong>
+                            <ul>
+                                <li>Получает <code>username</code> и <code>password</code> из <code>$_POST</code>.</li>
+                                <li>Проверяет, что они не пустые.</li>
+                                <li>Ищет пользователя в БД по <code>username</code>.</li>
+                                <li>Если пользователь найден, использует <code>password_verify()</code> для сравнения введенного пароля с хэшем из БД.</li>
+                                <li>Если пароль верен, вызывает <code>session_regenerate_id(true)</code> для безопасности (меняет ID сессии) и записывает данные пользователя (<code>userId</code>, <code>username</code>, <code>isAdmin</code>) в глобальный массив <code>$_SESSION</code>.</li>
+                                <li>Формирует JSON-ответ об успехе (<code>success: true</code>) или неудаче (<code>success: false</code>).</li>
+                            </ul>
+                        </li>
+                         <li><strong><code>case 'register':</code></strong>
+                            <ul>
+                                <li>Получает <code>username</code> и <code>password</code> из <code>$_POST</code>.</li>
+                                <li>Проверяет их на пустоту и минимальную длину (<code>mb_strlen</code> для username, <code>strlen</code> для password).</li>
+                                <li>Проверяет в БД, не занят ли уже такой <code>username</code>.</li>
+                                <li>Если имя свободно, создает хэш пароля с помощью <code>password_hash()</code> (используя алгоритм по умолчанию, который является безопасным).</li>
+                                <li>Вставляет нового пользователя в БД.</li>
+                                <li>Если вставка успешна, получает ID нового пользователя (<code>$pdo->lastInsertId()</code>), запускает для него сессию (как при логине, только <code>isAdmin</code> точно false).</li>
+                                <li>Формирует JSON-ответ об успехе или неудаче.</li>
+                            </ul>
+                        </li>
+                         <li><strong><code>case 'logout':</code></strong>
+                            <ul>
+                                <li>Вызывает <code>session_destroy()</code>, чтобы удалить все данные текущей сессии на сервере.</li>
+                                <li>Дополнительно удаляет cookie сессии из браузера пользователя (с помощью <code>setcookie</code> с прошедшим временем жизни), чтобы сессия точно завершилась.</li>
+                                <li>Формирует JSON-ответ об успехе.</li>
+                            </ul>
+                        </li>
+                        <li><strong><code>case 'checkSession':</code></strong>
+                            <ul>
+                                <li>Проверяет, установлены ли переменные <code>$_SESSION['userId']</code> и <code>$_SESSION['user']</code>.</li>
+                                <li>Формирует JSON-ответ, указывающий, залогинен ли пользователь (<code>loggedIn: true/false</code>), и если да, то передает его <code>username</code> и статус <code>isAdmin</code>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>В конце скрипта (<code>finally</code>) закрывает соединение с БД (<code>$pdo = null;</code>) и отправляет сформированный JSON-ответ браузеру (<code>echo json_encode(...)</code>), предварительно установив правильный заголовок <code>Content-Type</code>.</li>
+                <li>Использует <code>try-catch</code> для перехвата общих ошибок и ошибок БД, логирует их и возвращает JSON с сообщением об ошибке сервера.</li>
+            </ol>
+         </div>
+
+         <div class="php-explanation">
+             <h4><code>courses.php</code></h4>
+             <p><strong>Назначение:</strong> Управляет информацией о курсах: получение списка, деталей, добавление и удаление.</p>
+             <p><strong>Как работает:</strong></p>
+             <ol>
+                 <li>Подключает <code>config.php</code>, запускает сессию, определяет <code>action</code>.</li>
+                 <li><code>switch ($action):</code>
+                     <ul>
+                         <li><strong><code>case 'list':</code></strong> Выполняет простой запрос к БД для получения <code>id</code>, <code>title</code>, <code>description</code> всех курсов и возвращает их в виде JSON-массива.</li>
+                         <li><strong><code>case 'get':</code></strong> Получает <code>id</code> курса из <code>$_GET</code>, проверяет его. Выполняет первый запрос к БД для получения данных самого курса. Если курс найден, выполняет второй запрос для получения списка уроков (<code>id</code>, <code>title</code>), связанных с этим <code>course_id</code>. Добавляет этот список уроков как элемент <code>lessons</code> к данным курса и возвращает всё в виде JSON-объекта. Если курс не найден, возвращает ошибку 404.</li>
+                         <li><strong><code>case 'adminList':</code></strong> Сначала проверяет, является ли пользователь администратором (<code>if (!$isAdmin)</code>). Если да, получает упрощенный список курсов (<code>id</code>, <code>title</code>) для админки и возвращает как JSON. Если нет, возвращает стандартное сообщение об ошибке прав доступа.</li>
+                         <li><strong><code>case 'add':</code></strong> Проверяет права администратора. Получает <code>title</code> и <code>description</code> из <code>$_POST</code>, проверяет, что <code>title</code> не пустой. Вставляет данные в таблицу <code>courses</code> и возвращает JSON об успехе (с ID нового курса) или неудаче.</li>
+                         <li><strong><code>case 'delete':</code></strong> Проверяет права администратора. Получает <code>id</code> курса из <code>$_POST</code>, проверяет его. Важно: Использует <strong>транзакцию БД</strong> (<code>$pdo->beginTransaction()</code>). Внутри транзакции: сначала находит ID всех уроков, связанных с этим курсом; затем удаляет записи из <code>user_progress</code>, относящиеся к этим урокам; затем удаляет сами уроки из <code>lessons</code>; и наконец, удаляет курс из <code>courses</code>. Если все шаги успешны, вызывает <code>$pdo->commit()</code>. Если на каком-то шаге происходит ошибка (исключение <code>PDOException</code>), вызывает <code>$pdo->rollBack()</code>, отменяя все изменения, сделанные внутри транзакции. Возвращает JSON об успехе или неудаче операции.</li>
+                     </ul>
+                 </li>
+                 <li>Обработка ошибок <code>try-catch</code> и отправка JSON-ответа аналогичны <code>auth.php</code>.</li>
+             </ol>
+         </div>
+
+         <div class="php-explanation">
+            <h4><code>lessons.php</code></h4>
+            <p><strong>Назначение:</strong> Управляет уроками: получение данных урока, добавление урока к курсу, обработка результатов теста.</p>
+            <p><strong>Как работает:</strong></p>
+            <ol>
+                <li>Подключение <code>config.php</code>, сессия, определение <code>action</code>.</li>
+                <li><code>switch ($action):</code>
+                    <ul>
+                        <li><strong><code>case 'get':</code></strong> Получает <code>id</code> урока из <code>$_GET</code>, проверяет его. Запрашивает данные урока из <code>lessons</code>. Если поле <code>test</code> не пустое, использует <code>json_decode()</code> для преобразования JSON-строки теста в PHP-массив/объект. Если декодирование не удалось (<code>json_last_error() != JSON_ERROR_NONE</code>), записывает ошибку в лог и добавляет сообщение об ошибке в поле <code>test</code> ответа. Возвращает JSON с данными урока. Если урок не найден, возвращает ошибку 404.</li>
+                        <li><strong><code>case 'add':</code></strong> Проверяет права администратора. Получает <code>courseId</code>, <code>title</code>, <code>content</code>, <code>test</code> (JSON-строка) из <code>$_POST</code>. Проверяет <code>courseId</code> и <code>title</code>. Если строка <code>test</code> передана, использует <code>json_decode()</code> для проверки валидности JSON и его структуры (должен быть объект с ключом <code>questions</code>, который является массивом). Если JSON невалиден или структура неверна, возвращает ошибку 400. Если все в порядке, вставляет новый урок в таблицу <code>lessons</code>. Возвращает JSON об успехе или неудаче.</li>
+                        <li><strong><code>case 'submitTest':</code></strong> Проверяет, авторизован ли пользователь (<code>$userId > 0</code>). Получает <code>lessonId</code> и <code>answers</code> (JSON-строка) из <code>$_POST</code>. Проверяет <code>lessonId</code> и валидность JSON в <code>answers</code>. Получает из БД JSON-строку теста для данного <code>lessonId</code>. Декодирует её (<code>json_decode</code>). Проверяет структуру теста из БД. Логика проверки: Итерирует по массиву вопросов из теста (<code>$test['questions']</code>). Для каждого вопроса сравнивает правильный ответ (<code>$questionData['answer']</code>) с ответом, присланным пользователем (<code>$answers[index]</code>). Считает количество правильных ответов (<code>$correctAnswers</code>). Вычисляет процент (<code>$score</code>). Использует запрос <code>INSERT ... ON DUPLICATE KEY UPDATE ...</code> для таблицы <code>user_progress</code>, чтобы либо создать новую запись о прохождении урока, либо обновить существующую (если пользователь пересдает тест), записывая результат (<code>$score</code>) и текущее время (<code>NOW()</code>). Возвращает JSON с результатом (успех/неудача, сообщение, балл, кол-во правильных/всего).</li>
+                        <li><strong><code>case 'delete'</code></strong> (предполагаемое, по вызову из JS): Проверяет права админа. Получает <code>id</code> урока. Удаляет урок из таблицы <code>lessons</code> по <code>id</code>. Связанные записи <code>user_progress</code> удаляются автоматически благодаря <code>ON DELETE CASCADE</code>. Возвращает JSON об успехе/неудаче.</li>
+                    </ul>
+                </li>
+                <li>Обработка ошибок и отправка JSON - стандартные.</li>
+            </ol>
+         </div>
+
+        <div class="php-explanation">
+            <h4><code>user.php</code></h4>
+            <p><strong>Назначение:</strong> Управляет пользователями (список, удаление) и предоставляет данные для личного кабинета.</p>
+            <p><strong>Как работает:</strong></p>
+            <ol>
+                <li>Подключение <code>config.php</code>, сессия, определение <code>action</code>.</li>
+                <li><code>switch ($action):</code>
+                    <ul>
+                        <li><strong><code>case 'list':</code></strong> Проверяет права админа. Получает список пользователей (<code>id</code>, <code>username</code>, <code>is_admin</code>) из БД и возвращает как JSON.</li>
+                        <li><strong><code>case 'delete':</code></strong> Проверяет права админа. Получает <code>id</code> пользователя для удаления. Важно: Проверяет, не пытается ли админ удалить сам себя (<code>$userIdToDelete === $currentUserId</code>) или основного админа (<code>$userIdToDelete === PRIMARY_ADMIN_ID</code>). Если проверка пройдена, использует транзакцию: удаляет записи из <code>user_progress</code> для этого пользователя, затем удаляет самого пользователя из <code>users</code>. Коммитит или откатывает транзакцию. Возвращает JSON с результатом.</li>
+                        <li><strong><code>case 'dashboard':</code></strong> Проверяет, авторизован ли пользователь (<code>$currentUserId > 0</code>). Выполняет два отдельных сложных SQL-запроса к БД (как описано в разделе про SQL): первый для получения прогресса по курсам, второй - для получения списка курсов, по которым выполнены условия для сертификата. Собирает результаты этих запросов и возвращает в виде JSON-объекта с ключами <code>progress</code> и <code>certificates</code>.</li>
+                    </ul>
+                </li>
+                <li>Стандартная обработка ошибок и возврат JSON.</li>
+            </ol>
+        </div>
+
+        <div class="php-explanation">
+            <h4><code>upload.php</code></h4>
+            <p><strong>Назначение:</strong> Обрабатывает загрузку файлов администратором.</p>
+            <p><strong>Как работает:</strong></p>
+            <ol>
+                <li>Подключение <code>config.php</code>, запуск сессии.</li>
+                <li>Без <code>switch</code>, сразу проверяет:
+                    <ul>
+                        <li>Является ли пользователь администратором (<code>if (!($_SESSION['isAdmin'] ?? false))</code>).</li>
+                        <li>Был ли запрос сделан методом POST (<code>if ($_SERVER['REQUEST_METHOD'] !== 'POST')</code>).</li>
+                    </ul>
+                </li>
+                <li>Получает <code>courseId</code> из <code>$_POST</code> и проверяет его.</li>
+                <li>Проверяет наличие файла в <code>$_FILES['file']</code> и отсутствие ошибок загрузки (проверяет значение <code>$file['error']</code>).</li>
+                <li>Проверяет размер файла (<code>$file['size']</code>), сравнивая с константой <code>MAX_FILE_SIZE</code>.</li>
+                <li>Получает расширение файла (<code>pathinfo</code>) и проверяет его по белому списку <code>ALLOWED_EXTENSIONS</code>.</li>
+                <li><strong>Важно:</strong> Использует расширение PHP <strong><code>fileinfo</code></strong> (<code>finfo_open</code>, <code>finfo_file</code>) для определения <strong>реального MIME-типа</strong> загруженного файла (на основе его содержимого, а не только расширения). Проверяет полученный MIME-тип по белому списку <code>ALLOWED_MIME_TYPES</code>. Это важная мера безопасности.</li>
+                <li>Проверяет, существует ли директория для загрузок (<code>UPLOAD_DIR</code>). Если нет, пытается её создать (<code>mkdir</code>). Проверяет, доступна ли директория для записи (<code>is_writable</code>).</li>
+                <li>Генерирует уникальное имя для файла на сервере (<code>uniqid</code>), чтобы избежать конфликтов имен и проблем с небезопасными символами в оригинальном имени.</li>
+                <li>Перемещает загруженный временный файл в постоянное место (<code>move_uploaded_file</code>) с новым уникальным именем.</li>
+                <li>Если перемещение успешно, записывает информацию о файле (включая путь <code>$filePath</code>, оригинальное имя, MIME-тип, размер) в таблицу <code>materials</code>.</li>
+                <li>Если запись в БД не удалась, удаляет только что перемещенный файл (<code>unlink</code>), чтобы не оставлять "мусор".</li>
+                <li>Формирует JSON-ответ об успехе (с путем к файлу) или неудаче на любом из шагов.</li>
+                <li>Стандартная обработка ошибок <code>try-catch</code>.</li>
+            </ol>
+        </div>
+
+        <div class="php-explanation">
+             <h4><code>certificate.php</code></h4>
+             <p><strong>Назначение:</strong> Генерирует PDF-сертификат, если пользователь выполнил условия.</p>
+             <p><strong>Как работает:</strong></p>
+             <ol>
+                 <li>Подключение <code>config.php</code>, запуск сессии.</li>
+                 <li>Подключение библиотеки FPDF (<code>require_once 'fpdf/fpdf.php'</code>).</li>
+                 <li>Получает <code>id</code> курса из <code>$_GET</code> и <code>userId</code> из сессии. Проверяет их валидность и авторизацию пользователя.</li>
+                 <li>Выполняет SQL-запрос к БД, чтобы проверить выполнение условий для сертификата по данному курсу для данного пользователя (все уроки пройдены + средний балл >= порога).</li>
+                 <li>Если условия выполнены (<code>if ($completionData)</code>):
+                     <ul>
+                         <li>Создает объект FPDF (<code>$pdf = new FPDF(...)</code>).</li>
+                         <li>Добавляет необходимые шрифты (включая DejaVu для кириллицы). Обрабатывает возможную ошибку загрузки шрифта.</li>
+                         <li>Добавляет страницу (<code>$pdf->AddPage()</code>).</li>
+                         <li>Используя методы FPDF (<code>SetFont</code>, <code>Cell</code>, <code>MultiCell</code>, <code>Rect</code>, <code>Ln</code> и т.д.), рисует содержимое сертификата: рамку, заголовки, имя пользователя (<code>$username</code> из сессии), название курса (<code>$completionData['course_title']</code>), средний балл, дату выдачи (<code>date('d.m.Y')</code>).</li>
+                         <li>Формирует имя файла для скачивания.</li>
+                         <li>Устанавливает HTTP-заголовки, указывающие браузеру, что ответ - это PDF-файл (<code>header('Content-Type: application/pdf');</code>) и как его отобразить/скачать (<code>header('Content-Disposition: inline; ...');</code>).</li>
+                         <li>Выводит сгенерированный PDF в браузер (<code>$pdf->Output('I', ...);</code>).</li>
+                     </ul>
+                 </li>
+                 <li>Если условия <strong>НЕ</strong> выполнены (<code>else</code>):
+                     <ul>
+                         <li>Устанавливает HTTP-статус ошибки (403 Forbidden).</li>
+                         <li>Формирует JSON-ответ с сообщением о том, что сертификат недоступен (или что курс не найден, если проверка показала это).</li>
+                     </ul>
+                 </li>
+                 <li>Стандартная обработка ошибок <code>try-catch</code> и закрытие соединения с БД.</li>
+             </ol>
+        </div>
+
+    </section>
+
+    <section id="ajax-explanation">
+        <h2>Дополнительно: Что такое AJAX?</h2>
+        <div class="php-explanation bionic-reading-text"> <p><strong>AJAX</strong> (<strong>A</strong>synchronous <strong>J</strong>avaScript <strong>a</strong>nd <strong>X</strong>ML) - <strong>это</strong> технология, <strong>которая</strong> позволяет <strong>веб</strong>-странице <strong>обмениваться</strong> данными <strong>с сервером</strong> <strong>фоново,</strong> без <strong>необходимости</strong> полностью <strong>перезагружать</strong> страницу. <strong>Хотя</strong> в названии <strong>есть</strong> "XML", <strong>сейчас</strong> для <strong>обмена</strong> данными <strong>чаще</strong> всего <strong>используется</strong> формат <strong>JSON.</strong></p>
+            <p><strong>Как</strong> это <strong>работает</strong> (простыми <strong>словами):</strong></p>
+            <ol>
+                <li><strong>Событие:</strong> Пользователь <strong>что</strong>-то <strong>делает</strong> на <strong>странице</strong> (например, <strong>нажимает</strong> кнопку "<strong>Показать</strong> уроки").</li>
+                <li><strong>JavaScript</strong> <strong>Запрос:</strong> JavaScript-<strong>код</strong> (в <strong>вашем</strong> случае, <strong>с помощью</strong> jQuery <code>$.get</code> <strong>или</strong> <code>$.post</code>) <strong>отправляет</strong> HTTP-<strong>запрос</strong> на <strong>сервер</strong> (например, <strong>на</strong> <code>courses.php?action=get&id=5</code>). <strong>Запрос</strong> уходит <strong>незаметно</strong> для <strong>пользователя.</strong></li>
+                <li><strong>Серверная</strong> <strong>Обработка:</strong> PHP-<strong>скрипт</strong> на <strong>сервере</strong> получает <strong>запрос,</strong> выполняет <strong>нужные</strong> действия (<strong>например,</strong> лезет <strong>в базу</strong> <strong>данных</strong> за <strong>уроками</strong> курса <strong>№5</strong>) и <strong>формирует</strong> ответ (<strong>например,</strong> список <strong>уроков</strong> в <strong>формате</strong> JSON).</li>
+                <li><strong>JavaScript</strong> <strong>Ответ:</strong> Сервер <strong>отправляет</strong> ответ <strong>обратно</strong> браузеру. <strong>JavaScript</strong> получает <strong>этот</strong> ответ (<strong>JSON</strong>-данные).</li>
+                <li><strong>Обновление</strong> <strong>Страницы:</strong> JavaScript <strong>использует</strong> полученные <strong>данные,</strong> чтобы <strong>обновить</strong> <strong>только</strong> нужную <strong>часть</strong> страницы (<strong>например,</strong> вставить <strong>список</strong> уроков <strong>в</strong> <code>#lessonView</code>), <strong>не затрагивая</strong> остальное (<strong>шапку,</strong> подвал <strong>и т.д.</strong>).</li>
+            </ol>
+            <p><strong>Зачем</strong> это <strong>в вашем</strong> <strong>проекте:</strong> AJAX <strong>делает</strong> интерфейс "<strong>живым"</strong> и <strong>отзывчивым.</strong> Когда <strong>вы нажимаете</strong> "Открыть <strong>курс",</strong> "Начать <strong>урок",</strong> "Отправить <strong>тест",</strong> "Загрузить <strong>статистику"</strong> - страница <strong>не мигает</strong> и не <strong>перезагружается</strong> целиком. <strong>Обновляются</strong> только <strong>те блоки,</strong> которые <strong>должны</strong> измениться. <strong>Это</strong> делает <strong>работу</strong> с <strong>сайтом</strong> гораздо <strong>приятнее</strong> и <strong>быстрее,</strong> похоже <strong>на работу</strong> с <strong>обычным</strong> приложением <strong>на компьютере.</strong> <strong>jQuery</strong> (<code>$</code>) <strong>сильно</strong> упрощает <strong>написание</strong> AJAX-<strong>запросов.</strong></p>
+        </div>
+    </section>
+
+     <section id="html-js-explanation">
+        <h2>Дополнительно: Объяснение HTML/CSS/JS Фронтенда</h2>
+
+        <div class="php-explanation">
+             <h4>HTML-структура:</h4>
+             <ul>
+                 <li>Стандартная разметка HTML5 (<code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>).</li>
+                 <li>Подключение Bootstrap CSS и JS для стилизации и компонентов.</li>
+                 <li>Подключение jQuery для упрощения работы с DOM и AJAX.</li>
+                 <li>Навигационная панель (<code>&lt;nav&gt;</code>): Содержит название ("Цифровой Наставник"), ссылки ("Курсы", "Мой кабинет", "Админ-панель" - видимость которых управляется JS) и кнопки "Вход/Регистрация" / "Выйти".</li>
+                 <li>Модальное окно (<code>#authModal</code>): Всплывающее окно для формы входа и регистрации. Содержит поля для имени пользователя, пароля и переключатель между входом и регистрацией.</li>
+                 <li>Основной контейнер (<code>#mainContentContainer</code>): Сюда динамически загружается основное содержимое:
+                     <ul>
+                         <li><code>#courseListView</code>: Секция для отображения списка курсов (карточки курсов).</li>
+                         <li><code>#lessonView</code>: Секция для отображения содержания урока и теста.</li>
+                         <li><code>#userDashboard</code>: Секция для личного кабинета пользователя (прогресс, сертификаты).</li>
+                         <li><code>#adminPanel</code>: Секция для панели администратора (меню навигации и область контента <code>#adminContent</code>).</li>
+                     </ul>
+                 </li>
+             </ul>
+             <h4>CSS-стили (<code>&lt;style&gt;</code>):</h4>
+             <ul>
+                 <li>Встроенные стили для кастомизации внешнего вида Bootstrap-компонентов и задания общего оформления страницы (отступы, фоны, шрифты, эффекты при наведении).</li>
+             </ul>
+             <h4>JavaScript-код (<code>&lt;script&gt;</code>):</h4>
+             <p>Самая важная часть для интерактивности. Использует библиотеку jQuery (<code>$</code>).</p>
+             <p><strong>Как работает JavaScript:</strong></p>
+             <ul>
+                 <li><strong>Инициализация (<code>$(document).ready(...)</code>):</strong> Код внутри этой функции выполняется, когда вся HTML-структура страницы загружена.
+                    <ul><li>Вызывает <code>loadCourses()</code> для первоначальной загрузки списка курсов.</li>
+                    <li><em>Примечание:</em> В вашем коде нет явного вызова функции проверки сессии при загрузке (<code>checkSession</code>), хотя она есть в <code>auth.php</code>. Хорошим дополнением было бы вызвать AJAX-запрос к <code>auth.php?action=checkSession</code> при загрузке страницы, чтобы сразу определить, залогинен ли пользователь, и обновить интерфейс (<code>updateUI</code>). Сейчас интерфейс обновляется только после успешного логина или регистрации.</li>
+                    <li>Навешивает обработчики событий на кнопки, формы и ссылки.</li></ul>
+                 </li>
+                 <li><strong>Навигация (<code>showPanel</code>, обработчики кликов на <code>#coursesLink</code>, <code>#dashboardLink</code>, <code>#adminLink</code>):</strong> Функции скрывают все основные панели (<code>#courseListView</code>, <code>#lessonView</code> и т.д.) и показывают только ту, которая нужна (<code>fadeIn</code>). Они также подсвечивают активную ссылку в меню навигации и вызывают соответствующие функции загрузки данных (<code>loadCourses</code>, <code>loadUserDashboard</code>, <code>loadAdminSection</code>).</li>
+                 <li><strong>Аутентификация (<code>#authForm</code>, <code>#toggleForm</code>, <code>#logoutButton</code>):</strong>
+                    <ul><li>Переключатель в модальном окне меняет режим (логин/регистрация) и текст кнопки.</li>
+                    <li>При отправке формы (<code>#authForm.on('submit', ...)</code>): Предотвращает стандартную отправку формы. Собирает данные (логин, пароль). Определяет <code>action</code> ('login' или 'register'). Отправляет AJAX POST-запрос на <code>auth.php</code>. В случае успеха (<code>success: function(res)</code>): Разбирает JSON-ответ, обновляет интерфейс (<code>updateUI</code>), закрывает модальное окно и показывает нужную панель (админку или личный кабинет). В случае ошибки (<code>error: function(...)</code> или <code>res.success === false</code>): Показывает сообщение об ошибке в модальном окне.</li>
+                    <li>Кнопка "Выйти" (<code>#logoutButton.on('click', ...)</code>): Отправляет AJAX POST-запрос на <code>auth.php</code> с <code>action: 'logout'</code>, при успехе обновляет интерфейс (<code>updateUI</code>).</li></ul>
+                 </li>
+                 <li><strong>Отображение Курсов и Уроков (<code>loadCourses</code>, <code>viewCourse</code>, <code>viewLesson</code>):</strong>
+                    <ul><li><code>loadCourses</code>: Отправляет AJAX GET-запрос на <code>courses.php?action=list</code>, получает JSON-список курсов, генерирует HTML-карточки и вставляет их в <code>#courseList</code>.</li>
+                    <li><code>viewCourse(courseId)</code>: Отправляет AJAX GET-запрос на <code>courses.php?action=get&id={courseId}</code>, получает JSON с данными курса и списком уроков, генерирует HTML и показывает его в <code>#lessonView</code>.</li>
+                    <li><code>viewLesson(lessonId)</code>: Отправляет AJAX GET-запрос на <code>lessons.php?action=get&id={lessonId}</code>, получает JSON с данными урока (включая декодированный тест), генерирует HTML (включая форму теста, если тест есть) и показывает в <code>#lessonView</code>.</li></ul>
+                 </li>
+                  <li><strong>Обработка Теста (<code>#testForm</code>):</strong>
+                    <ul><li>Динамически создается в <code>viewLesson</code>, если у урока есть тест.</li>
+                    <li>При отправке (<code>#testForm.on('submit', ...)</code>): Собирает ответы пользователя. Проверяет, на все ли вопросы дан ответ. Отправляет AJAX POST-запрос на <code>lessons.php?action=submitTest</code> с ID урока и ответами в JSON. Показывает результат (сообщение от сервера) в <code>#testResult</code>.</li></ul>
+                 </li>
+                 <li><strong>Личный Кабинет (<code>loadUserDashboard</code>):</strong>
+                    <ul><li>Отправляет AJAX GET-запрос на <code>user.php?action=dashboard</code>.</li>
+                    <li>Получает JSON с данными о прогрессе (<code>progress</code>) и сертификатах (<code>certificates</code>).</li>
+                    <li>Генерирует HTML для отображения прогресс-баров и ссылок на сертификаты и вставляет в <code>#userProgress</code> и <code>#userCertificates</code>.</li></ul>
+                 </li>
+                 <li><strong>Админ-панель (<code>loadAdminSection</code>, <code>adminViewLessons</code>, <code>deleteCourse</code>, <code>deleteUser</code>, <code>deleteLesson</code>, <code>validateTestJson</code>, <code>#addCourseForm</code>, <code>#addLessonForm</code>, <code>#uploadForm</code>):</strong>
+                    <ul><li><code>loadAdminSection(section)</code>: При клике на меню админки вызывает загрузку нужного раздела. Отправляет AJAX-запросы на соответствующие PHP-скрипты (<code>courses.php?action=adminList</code>, <code>user.php?action=list</code>, <code>stats.php</code> (предполагается), <code>courses.php?action=list</code> для загрузки материалов) и отображает полученные данные (таблицы, формы) в <code>#adminContent</code>.</li>
+                    <li>Формы добавления (<code>#addCourseForm</code>, <code>#addLessonForm</code>): Собирают данные и отправляют AJAX POST-запросы на <code>courses.php?action=add</code> и <code>lessons.php?action=add</code>. При успехе обновляют соответствующий раздел админки.</li>
+                    <li>Форма загрузки (<code>#uploadForm</code>): Использует <code>FormData</code> для отправки файла и <code>courseId</code> через AJAX POST на <code>upload.php</code>. Отображает статус и ссылку на загруженный файл.</li>
+                    <li>Функции удаления (<code>deleteCourse</code>, <code>deleteUser</code>, <code>deleteLesson</code>): Показывают <code>confirm()</code> для подтверждения и отправляют AJAX POST-запросы на соответствующие <code>action=delete</code> в <code>courses.php</code>, <code>user.php</code>, <code>lessons.php</code>. При успехе обновляют раздел админки.</li>
+                    <li><code>validateTestJson</code>: Клиентская проверка структуры JSON, введенного в поле теста при добавлении урока.</li></ul>
+                 </li>
+                 <li><strong>Вспомогательные Функции:</strong>
+                    <ul><li><code>safeParseJson</code>: Безопасно пытается разобрать JSON-строку, возвращая null и выводя ошибку в консоль при неудаче.</li>
+                    <li><code>showStatusMessage</code>: Отображает сообщения об успехе/ошибке в виде Bootstrap alerts.</li>
+                    <li><code>updateUI</code>: Обновляет элементы интерфейса (кнопки Вход/Выход, приветственное сообщение, видимость ссылок) в зависимости от статуса логина и прав пользователя.</li></ul>
+                 </li>
+             </ul>
+             <p><strong>Зачем нужен:</strong> Это "лицо" вашего приложения. Он предоставляет пользователю интерфейс для взаимодействия со всеми функциями, реализованными на бэкенде, делая это динамично и удобно с помощью JavaScript и AJAX. Он связывает воедино все PHP API-эндпоинты.</p>
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <h2>5. Заключение</h2>
+        <ul>
+            <li>Проект "Цифровой Наставник" успешно реализует базовый функционал системы дистанционного обучения.</li>
+            <li>Продемонстрировано использование современных веб-технологий (PHP, MySQL, JS, AJAX, Bootstrap).</li>
+            <li>Применены меры для обеспечения безопасности и целостности данных.</li>
+            <li>Платформа имеет потенциал для дальнейшего развития и добавления нового функционала.</li>
+        </ul>
+    </section>
+
+</div> <script>
+    /**
+     * Функция для симуляции Bionic Reading путем выделения жирным
+     * начальной части каждого слова в выбранных элементах.
+     * @param {string} selector CSS-селектор для элементов, к которым применить стиль.
+     */
+    function applyBionicReadingSimulation(selector) {
+        const elements = document.querySelectorAll(selector);
+
+        elements.forEach(element => {
+            // Обрабатываем только текстовые узлы, чтобы не сломать HTML-теги внутри
+            const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+            let node;
+            const nodesToModify = [];
+
+            // Собираем все текстовые узлы
+            while(node = walker.nextNode()) {
+                // Игнорируем пустые текстовые узлы или узлы внутри <pre> и <code>
+                if (node.nodeValue.trim() !== '' && node.parentElement.tagName !== 'PRE' && node.parentElement.tagName !== 'CODE') {
+                    nodesToModify.push(node);
+                }
+            }
+
+            // Обрабатываем собранные узлы
+            nodesToModify.forEach(textNode => {
+                const text = textNode.nodeValue;
+                const words = text.split(/(\s+)/); // Разбиваем, сохраняя пробелы
+                const fragment = document.createDocumentFragment();
+
+                words.forEach(word => {
+                    if (/\S/.test(word)) { // Если это не только пробельные символы
+                        const wordLength = word.length;
+                        // Определяем, сколько букв выделить (примерно половину, минимум 1, максимум 4-5)
+                        const boldLength = Math.max(1, Math.min(Math.ceil(wordLength / 2), wordLength > 5 ? 4 : 3));
+
+                        if (wordLength > 0) {
+                            const bionicPart = document.createElement('span');
+                            bionicPart.className = 'bionic-part'; // Используем класс для стилизации
+                            bionicPart.textContent = word.substring(0, boldLength);
+                            fragment.appendChild(bionicPart);
+                            fragment.appendChild(document.createTextNode(word.substring(boldLength)));
+                        }
+                    } else {
+                        // Просто добавляем пробельные символы как есть
+                        fragment.appendChild(document.createTextNode(word));
+                    }
+                });
+                // Заменяем исходный текстовый узел на созданный фрагмент
+                textNode.parentNode.replaceChild(fragment, textNode);
+            });
+        });
+    }
+
+    // Применяем симуляцию при загрузке DOM
+    document.addEventListener('DOMContentLoaded', () => {
+        // Применяем стиль к параграфам и элементам списка внутри блоков с классом 'bionic-reading-text'
+        applyBionicReadingSimulation('.bionic-reading-text p, .bionic-reading-text li');
+    });
+</script>
+
+</body>
+</html>
